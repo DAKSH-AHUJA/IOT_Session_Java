@@ -1,0 +1,73 @@
+package day7;
+
+public class MergeSortName {
+
+    static void mergeSort(int[] marks, int leftIndex, int rightIndex) {
+
+        // Base condition: one element is already sorted
+        if (leftIndex >= rightIndex) {
+            return;
+        }
+
+        int middleIndex = (leftIndex + rightIndex) / 2;
+
+        // Sort the left half
+        mergeSort(marks, leftIndex, middleIndex);
+
+        // Sort the right half
+        mergeSort(marks, middleIndex + 1, rightIndex);
+
+        // Temporary array for merging
+        int[] temporaryArray =
+                new int[rightIndex - leftIndex + 1];
+
+        int leftPointer = leftIndex;
+        int rightPointer = middleIndex + 1;
+        int temporaryPointer = 0;
+
+        // Merge both sorted halves
+        while (leftPointer <= middleIndex
+                && rightPointer <= rightIndex) {
+
+            if (marks[leftPointer] < marks[rightPointer]) {
+                temporaryArray[temporaryPointer] = marks[leftPointer];
+                leftPointer++;
+            } else {
+                temporaryArray[temporaryPointer] = marks[rightPointer];
+                rightPointer++;
+            }
+
+            temporaryPointer++;
+        }
+
+        // Copy remaining elements from the left half
+        while (leftPointer <= middleIndex) {
+            temporaryArray[temporaryPointer] = marks[leftPointer];
+            leftPointer++;
+            temporaryPointer++;
+        }
+
+        // Copy remaining elements from the right half
+        while (rightPointer <= rightIndex) {
+            temporaryArray[temporaryPointer] = marks[rightPointer];
+            rightPointer++;
+            temporaryPointer++;
+        }
+
+        // Copy sorted values back into the original array
+        for (int index = 0; index < temporaryArray.length; index++) {
+            marks[leftIndex + index] = temporaryArray[index];
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] marks = {80, 45, 60, 30, 90, 20, 70, 50};
+
+        mergeSort(marks, 0, marks.length - 1);
+
+        for (int mark : marks) {
+            System.out.print(mark + " ");
+        }
+    }
+}

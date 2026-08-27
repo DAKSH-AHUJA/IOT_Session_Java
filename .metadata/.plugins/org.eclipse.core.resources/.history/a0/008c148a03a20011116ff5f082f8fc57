@@ -1,0 +1,47 @@
+package day7;
+
+public class QuickSort {
+
+    static void quickSort(int[] a, int l, int r) {
+
+        if (l >= r)
+            return;
+        int p = part(a, l, r);
+        quickSort(a, l, p - 1);
+        quickSort(a, p + 1, r);
+    }
+
+    static int part(int[] a, int l, int r) {
+
+        int pivot = a[r];
+        int i = l - 1;
+
+        for (int j = l; j < r; j++) {
+
+            if (a[j] < pivot) {
+                i++;
+
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+
+        int temp = a[i + 1];
+        a[i + 1] = a[r];
+        a[r] = temp;
+
+        return i + 1;
+    }
+
+    public static void main(String[] args) {
+
+        int[] marks = {80, 45, 60, 30, 90, 20, 70, 50};
+
+        quickSort(marks, 0, marks.length - 1);
+
+        for (int mark : marks) {
+            System.out.print(mark + " ");
+        }
+    }
+}
