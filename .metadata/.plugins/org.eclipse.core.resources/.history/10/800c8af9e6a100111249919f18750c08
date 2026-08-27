@@ -1,0 +1,41 @@
+package day7;
+public class BinarySameNames {
+
+    public static void main(String[] args) {
+
+        String[] names = {
+            "Aarav", "Ananya", "Karan", "Karan",
+            "Meera", "Rahul", "Riya", "Sneha"
+        };
+
+        String target = "Riya";
+
+        int start = 0;
+        int end = names.length - 1;
+
+        String floor = null;
+        String ceil = null;
+
+        while (start <= end) {
+
+            int mid = (start + end) / 2;
+
+            if (names[mid].equals(target)) {
+                floor = names[mid];
+                ceil = names[mid];
+                break;
+            }
+            else if (names[mid].compareTo(target) < 0) {
+                floor = names[mid];    // Possible floor
+                start = mid + 1;       // Search right
+            }
+            else {
+                ceil = names[mid];     // Possible ceil
+                end = mid - 1;         // Search left
+            }
+        }
+
+        System.out.println("Floor = " + floor);
+        System.out.println("Ceil = " + ceil);
+    }
+}

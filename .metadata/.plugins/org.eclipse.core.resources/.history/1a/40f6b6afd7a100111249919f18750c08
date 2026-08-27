@@ -1,0 +1,21 @@
+package day7;
+
+public class BackTrackingEx {
+	private void Demo() {
+		static String correctPassword = "231";
+		static void tryPassword(String password) {
+			System.out.println("Passwprd found: " + password);
+			
+			if(password.equals(correctPassword)) {
+				System.out.println("Password found: " + password);
+				return;
+			}
+		}
+		System.out.println("Wrong password. Go back and try another");
+	}
+	
+	public static void main(String[] args) {
+		
+		
+	}
+}

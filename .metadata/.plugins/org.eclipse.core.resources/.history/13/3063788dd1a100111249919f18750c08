@@ -1,0 +1,21 @@
+package day7;
+
+public class RecurBankWithdrawal {
+	
+	static void withdraw(int balance) {
+        if (balance == 0) {
+        	System.out.println("Balance is zero");
+            return;
+        }
+
+        System.out.println("Withdrawing 2000");
+
+//        withdraw(balance - 2000);
+    }
+    
+    
+    public static void main(String[] args) {
+        withdraw(10000);
+    }
+
+}

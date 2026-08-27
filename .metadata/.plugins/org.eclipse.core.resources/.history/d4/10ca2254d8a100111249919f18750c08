@@ -1,0 +1,32 @@
+package day7;
+
+public class BackTrackingNewLogic {
+
+    static String correctPassword = "231";
+
+    static void tryPassword(String[] passwords, int index) {
+        if (index == passwords.length) {
+            System.out.println("Password not found.");
+            return;
+        }
+
+        String password = passwords[index];
+
+        if (password.equals(correctPassword)) {
+            System.out.println("Password found: " + password);
+            return;
+        }
+
+        System.out.println("Wrong password: " + password);
+        System.out.println("Go back and try another.");
+
+        tryPassword(passwords, index + 1);
+    }
+
+    public static void main(String[] args) {
+
+        String[] passwords = {"123", "345", "213", "365", "231"};
+
+        tryPassword(passwords, 0);
+    }
+}
