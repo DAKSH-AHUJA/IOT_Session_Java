@@ -23,10 +23,10 @@ public class EmployeeDemo {
 		
 		List<Employe> employees = Arrays.asList(
 				new Employe("Ravi", "IT", 60000),
-				new Employe("Anil", "HR", 60000),
-				new Employe("Priya", "IT", 60000),
+				new Employe("Anil", "HR", 50000),
+				new Employe("Priya", "IT", 50000),
 				new Employe("Amit", "HR", 60000),
-				new Employe("Rahul", "AT", 60000)
+				new Employe("Rahul", "AT", 50000)
 				);
 		
 		employees.sort(
