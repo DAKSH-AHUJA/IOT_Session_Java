@@ -1,27 +1,25 @@
 package day8;
-
-public class SimplyLinkedList {
+public class CircularLiked {
 	static class Node{
 		int data;
+		Node previous;
 		Node next;
-		Node(int data){
+		Node (int data){
 			this.data = data;
-			this.next = null;
 		}
 	}
+	
 	public static void main(String[] args) {
 		Node first = new Node(10);
 		Node second = new Node(20);
 		Node third = new Node(30);
 		first.next = second;
 		second.next = third;
+		third.next = first;
 		Node current = first;
-		while(current != null) {
+		for (int i = 0; i < 6; i++) {
 			System.out.print(current.data + " -> ");
 			current = current.next;
 		}
-//		System.out.println();
 	}
-	
 }
-
