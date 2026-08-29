@@ -8,10 +8,6 @@ class Node{
 	}
 }
 
-
-
-
-
 public class Diameter {
 	static int diameter = 0;
 	static int height(Node root) {
