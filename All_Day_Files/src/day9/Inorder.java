@@ -1,7 +1,7 @@
 package day9;
 //Binary search tree
 
-public class PreOrder {
+public class Inorder {
 		
 		static class Node{
 			int data;
@@ -12,16 +12,17 @@ public class PreOrder {
 			}
 		}
 		// Recursive method
-		static void preorder(Node root) {
+		static void inorder(Node root) {
 			if(root == null) {
 				return;
 			}
-			// 1. Visit root
+			// 1. visit left tree
+			inorder(root.left);
+			// 2. Visit root
 			System.out.print(root.data + " ");
-			// 2. visit left tree
-			preorder(root.left);
 			// 3. Visit right tree
-			preorder(root.right);
+			inorder(root.right);
+			
 	}
 	
 		public static void main(String[] args) {
@@ -32,7 +33,8 @@ public class PreOrder {
 			root.left.left = new Node(4);
 			root.left.right = new Node(5);
 			//start traversal
-			preorder(root);
+			inorder(root);
 		}
 	
 }
+
