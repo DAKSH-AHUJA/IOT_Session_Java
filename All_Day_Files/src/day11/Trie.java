@@ -9,19 +9,15 @@ public class Trie {
 
     void insert(String word) {
         TrieNode current = root;
-
         for (int i = 0; i < word.length(); i++) {
             int index = word.charAt(i) - 'a';
 
             if (current.children[index] == null) {
-
                 current.children[index] = new TrieNode();
-
             }
             current = current.children[index];
         }
         current.isEnd = true;
-
     }
     public static void main(String[] args) {
         Trie t = new Trie();
